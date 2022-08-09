@@ -9,15 +9,17 @@ class Enigma
     @key = random_key  
   end
 
-  def encrypt(message, key, date)
+  # def encrypt(message, key, date)
     
-      encryption = message.downcase.chars.each_with_index.map do |letter, index|
-          if index % 4 == 0
-            return
-          end
-        end
-      encrypted = {encryption: messege, key: key, date: date}
-  end
+  #     encryption = message.downcase.chars.each_with_index.map do |letter, index|
+  #         if index % 4 == 0
+  #           require 'pry'; binding.pry
+  #           letter.a_shift 
+  #           return
+  #         end
+  #       end
+  #     encrypted = {encryption: messege, key: key, date: date}
+  # end
  
 
   def random_key

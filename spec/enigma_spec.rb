@@ -8,7 +8,7 @@ RSpec.describe Enigma do
     @enigma = Enigma.new
   end
 
-  it 'can encrypt a message with a key and date' do
+  xit 'can encrypt a message with a key and date' do
     @enigma.generate_date
     @enigma.keys
     @enigma.dates
@@ -57,11 +57,10 @@ RSpec.describe Enigma do
 
   it 'can generate todays date' do 
     expect(@enigma.generate_date).to eq("090822")
-
+    expect(@enigma.generate_date.length).to eq(6)
   end
 
   it 'can calculate offsets by date' do
-    
     @enigma.generate_date
     
     expect(@enigma.dates).to be_a Hash
@@ -82,7 +81,6 @@ RSpec.describe Enigma do
     @enigma.keys
     @enigma.dates
     @enigma.offsets
-
 
     expect(@enigma.a_shift.length).to eq 27
     expect(@enigma.b_shift.length).to eq 27
