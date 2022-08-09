@@ -62,6 +62,13 @@ RSpec.describe Enigma do
     expect(@enigma.dates.count).to eq 4
   end
 
+  it 'can generate the offset by adding the key and date offset values' do 
+    @enigma.generate_date
+    @enigma.keys
+    @enigma.dates
+    expect(@enigma.offsets).to be_a Hash
+    expect(@enigma.offsets.count).to eq 4
+  end
 
 end
 
