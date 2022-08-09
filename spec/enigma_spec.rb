@@ -8,7 +8,7 @@ RSpec.describe Enigma do
     @enigma = Enigma.new
   end
 
-  it 'can encrypt a message with a key and date' do
+  xit 'can encrypt a message with a key and date' do
     expect(@enigma.encrypt("hello world", "02715", "040895")).to eq(
       {
       encryption: "keder ohulw",
@@ -17,7 +17,7 @@ RSpec.describe Enigma do
     })
   end
 
-  it 'can decrypt a message with a key and date' do
+  xit 'can decrypt a message with a key and date' do
     expect(@enigma.decrypt("keder ohulw", "02715", "040895")).to eq(
     {
       decryption: "hello world",
@@ -26,27 +26,49 @@ RSpec.describe Enigma do
     })
   end 
 
-  it 'can encrypt a message with a key (uses todays date' do 
+  xit 'can encrypt a message with a key (uses todays date' do 
     expect(@encrypted = @enigma.encrypt("hello world", "02715")).to be_a Hash
   #=> # encryption hash here
   end
 
-  it 'can decrypt a message with a key (uses todays date)'do
+  xit 'can decrypt a message with a key (uses todays date)'do
     expect(@enigma.decrypt(encrypted[:encryption], "02715")).to be_a Hash
   #=> # decryption hash here
   end
 
-  it 'can encrypt a message (generates random key and uses todays date)' do
+  xit 'can encrypt a message (generates random key and uses todays date)' do
     expect(@enigma.encrypt("hello world")).to be_a Hash
   #=> # encryption hash here
   end
 
+  it 'can generate random 5 diget key' do
+    expect(@enigma.random_key.length).to eq 5
+  end
+
+  it 'can add random keys to hash' do
+    expect(@enigma.keys).to be_a Hash
+    expect(@enigma.keys.count).to eq 4
+  end
+
+  it 'can generate todays date' do 
+    expect(@enigma.generate_date).to eq("090822")
+  end
+
+  it 'can calculate offsets by date' do
+    
+    @enigma.generate_date
+    
+    expect(@enigma.dates).to be_a Hash
+    expect(@enigma.dates.count).to eq 4
+  end
+
+
 end
 
-Array#rotate
-Date#strftime
-Date::today
-Enumerator#with_index
+# Array#rotate
+# Date#strftime
+# Date::today
+# Enumerator#with_index
 
 # Finding the Shifts
 # Each shift will be the sum of two other shifts known as the Keys and the Offsets. So the A shift will be the A key plus the A offset, the B shift will be the B key plus the B offset, etc.
