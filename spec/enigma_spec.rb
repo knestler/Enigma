@@ -1,6 +1,6 @@
 require_relative 'spec_helper.rb'
 require './lib/enigma'
-# require 'date'
+require 'date'
 
 RSpec.describe Enigma do
 
